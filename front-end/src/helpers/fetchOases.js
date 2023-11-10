@@ -1,7 +1,7 @@
-const OASES_URL = import.meta.env.VITE_OASES_API;
+const PORT = import.meta.env.VITE_PORT;
 
 export const getOasesByDesert = async (desert) => {
-    const url = `${OASES_URL}?desert=${desert}`;
+    const url = `http://localhost:${PORT}/v1/oases?desert=${desert}`;
     const res = await fetch(url);
     const data = res.json();
 
@@ -10,7 +10,7 @@ export const getOasesByDesert = async (desert) => {
 };
 
 export const createOasis = async(oasis) => {
-    const url = `${OASES_URL}/new-oasis`
+    const url = `http://localhost:${PORT}/v1/oases/new-oasis`
     const res = await fetch(url, {
         method: 'POST',
         headers: {
